@@ -3,12 +3,11 @@
 # refer  spf13-vim bootstrap.sh
 
 ############################  SETUP PARAMETERS
-app_name='xyzibu-vim'
-[ -z "$APP_PATH" ] && APP_PATH="$HOME/.xyzibu-vim"
-[ -z "$REPO_URI" ] && REPO_URI='https://github.com/xyzibu/xyzibu-vim.git'
-[ -z "$REPO_BRANCH" ] && REPO_BRANCH=''
+app_name='xyzibu-dotfiles'
+[ -z "$APP_PATH" ] && APP_PATH="$HOME/.xyzibu-dotfiles"
+[ -z "$REPO_URI" ] && REPO_URI='https://github.com/xyzibu/.xyzibu-dotfiles.git'
+[ -z "$REPO_BRANCH" ] && REPO_BRANCH='master'
 debug_mode='0'
-fork_maintainer='0'
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/VundleVim/Vundle.vim.git"
 
 ############################  BASIC SETUP TOOLS
@@ -72,13 +71,13 @@ lnif() {
 
 do_backup() {
     if [ -e "$1" ] || [ -e "$2" ] || [ -e "$3" ]; then
-        msg "Attempting to back up your original vim configuration."
+        msg "Attempting to back up your original configuration."
         today=`date +%Y%m%d_%s`
         for i in "$1" "$2" "$3"; do
             [ -e "$i" ] && [ ! -L "$i" ] && mv -v "$i" "$i.$today";
         done
         ret="$?"
-        success "Your original vim configuration has been backed up."
+        success "Your original configuration has been backed up."
         debug
    fi
 }
@@ -113,6 +112,7 @@ create_symlinks() {
     lnif "$source_path/.vimrc.bundles" "$target_path/.vimrc.bundles"
     lnif "$source_path/.vimrc.before"  "$target_path/.vimrc.before"
     lnif "$source_path/.vim"           "$target_path/.vim"
+    lnif "$source_path/.tmux.conf"     "$target_path/.tmux.conf"
 
     if program_exists "nvim"; then
         lnif "$source_path/.vim"       "$target_path/.config/nvim"
@@ -124,25 +124,6 @@ create_symlinks() {
     ret="$?"
     success "Setting up vim symlinks."
     debug
-}
-
-setup_fork_mode() {
-    local source_path="$2"
-    local target_path="$3"
-
-    if [ "$1" -eq '1' ]; then
-        touch "$target_path/.vimrc.fork"
-        touch "$target_path/.vimrc.bundles.fork"
-        touch "$target_path/.vimrc.before.fork"
-
-        lnif "$source_path/.vimrc.fork"         "$target_path/.vimrc.fork"
-        lnif "$source_path/.vimrc.bundles.fork" "$target_path/.vimrc.bundles.fork"
-        lnif "$source_path/.vimrc.before.fork"  "$target_path/.vimrc.before.fork"
-
-        ret="$?"
-        success "Created fork maintainer files."
-        debug
-    fi
 }
 
 setup_vundle() {
@@ -167,21 +148,17 @@ variable_set "$HOME"
 program_must_exist "vim"
 program_must_exist "git"
 
-#do_backup       "$HOME/.vim" \
-#                "$HOME/.vimrc" \
-#                "$HOME/.gvimrc"
+do_backup       "$HOME/.vim" \
+                "$HOME/.vimrc" \
+                "$HOME/.tmux.conf"
 
-#sync_repo       "$APP_PATH" \
-#                "$REPO_URI" \
-#                "$REPO_BRANCH" \
-#                "$app_name"
+sync_repo       "$APP_PATH" \
+                "$REPO_URI" \
+                "$REPO_BRANCH" \
+                "$app_name"
 
 create_symlinks "$APP_PATH" \
                 "$HOME"
-
-#setup_fork_mode "$fork_maintainer" \
-#                "$APP_PATH" \
-#                "$HOME"
 
 sync_repo       "$HOME/.vim/bundle/Vundle.vim" \
                 "$VUNDLE_URI" \
