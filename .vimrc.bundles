@@ -1,0 +1,138 @@
+" ==========================================
+" bundle 插件管理和配置项
+" ==========================================
+
+"------------------------------------------- begin of configs --------------------------------------------
+
+" ################### 包依赖 #####################
+
+set nocompatible " be iMproved, required
+filetype off " required! turn off
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+
+" ################### 插件管理 ###################
+
+" 使用Vundle来管理插件
+" vim plugin bundle control, command model
+"     :BundleInstall     install 安装配置的插件
+"     :BundleInstall!    update  更新
+"     :BundleClean       remove plugin not in list 删除本地无用插件
+Plugin 'VundleVim/Vundle.vim'
+
+" ################### 快速导航 ###################
+"目录导航
+Plugin 'scrooloose/nerdtree'
+
+" NerdTree {
+    if isdirectory(expand("~/.vim/bundle/nerdtree"))
+        "使用 NERDTree 插件查看工程文件。设置快捷键
+        "map <F3> :NERDTreeToggle<CR>
+        "在树中找到当前文件
+        let NERDTreeQuitOnOpen=1 "NERDTree中打开文件后自动关闭NERDTree窗口 
+        noremap <silent> <F3> :NERDTreeFind<cr> "打开NERDTree,定位到当前文件
+
+        "open a NERDTree automatically when vim starts up
+        "autocmd VimEnter * NERDTree
+        "open a NERDTree automatically when vim starts up if no files were specified
+        "autocmd StdinReadPre * let s:std_in=1
+        "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+        let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
+
+        "是否高亮显示光标所在行
+        let NERDTreeHighlightCursorline=1
+        "设置NERDTree子窗口位置
+        let NERDTreeWinPos="left"
+        "显示隐藏文件
+        let NERDTreeShowHidden=1
+        "删除文件时自动删除文件对应 buffer
+        let NERDTreeAutoDeleteBuffer=1
+        "打开文件后是否关闭NerdTree窗口
+        let NERDTreeQuitOnOpen=0
+        "是否默认显示行号      
+        let NERDTreeShowLineNumbers=1
+
+        " s/v 分屏打开文件
+        let g:NERDTreeMapOpenSplit = 's'
+        let g:NERDTreeMapOpenVSplit = 'v'
+
+        " NERDTress File highlighting
+
+    endif
+" }
+
+Plugin 'jistr/vim-nerdtree-tabs'
+
+" nerdtree-tabs {
+    if isdirectory(expand("~/.vim/bundle/vim-nerdtree-tabs"))
+        map <leader>n <plug>NERDTreeTabsToggle<CR>
+        "Open NERDTree on console vim startup (default: 0)
+        let g:nerdtree_tabs_open_on_console_startup=0
+
+        "Do not open NERDTree if vim starts in diff mode (default: 1)
+        let g:nerdtree_tabs_no_startup_for_diff=1
+
+    endif
+" }
+
+" ################### 主题插件 ###################
+Plugin 'altercation/vim-colors-solarized'
+
+" 必须把~/.vim/bundle/vim-colors-solarized复制到~/.vim/colors/，否则提示Cannot
+" find color scheme solarized
+" cp ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
+" solarized {
+    if isdirectory(expand("~/.vim/bundle/vim-colors-solarized"))
+        syntax on
+        let g:solarized_termcolors=256
+        set background=dark
+        let g:solarized_termtrans=1
+        let g:solarized_degrade=1
+        let g:solarized_contrast = "normal"
+        let g:solarized_visibility= "low"
+        colorscheme solarized
+
+    endif
+" }
+
+Plugin 'nathanaelkane/vim-indent-guides'
+
+" indent-guides {
+    if isdirectory(expand("~/.vim/bundle/vim-indent-guides"))
+        " 随 vim 自启动
+         let g:indent_guides_enable_on_vim_startup=1
+        " 从第二层开始可视化显示缩进
+         let g:indent_guides_start_level=2
+        " 色块宽度
+         let g:indent_guides_guide_size=1
+        " 快捷键 ig 开/关缩进可视化
+        nmap <silent> <leader>ig <Plug>IndentGuidesToggle
+
+    endif
+" }
+
+" 快速移动
+Plugin 'easymotion/vim-easymotion'
+" vim-easymotion {
+    if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
+        " makes EasyMotion work similarly to Vim's smartcase option for global
+        " searches
+        let g:EasyMotion_smartcase = 1
+
+        map <Leader>l <Plug>(easymotion-lineforward)
+        map <Leader>j <Plug>(easymotion-j)
+        map <Leader>k <Plug>(easymotion-k)
+        map <Leader>h <Plug>(easymotion-linebackward)
+
+    endif
+" }
+
+" 快速选中编辑
+Plugin 'vim-multiple-cursors'
+
+
+ call vundle#end()            " required
+ filetype plugin indent on    " required
