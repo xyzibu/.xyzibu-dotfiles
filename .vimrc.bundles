@@ -131,7 +131,7 @@ Plugin 'easymotion/vim-easymotion'
 " }
 
 " 快速选中编辑
-Plugin 'vim-multiple-cursors'
+"Plugin 'vim-multiple-cursors'
 
 
  call vundle#end()            " required

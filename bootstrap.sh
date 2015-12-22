@@ -143,36 +143,45 @@ setup_vundle() {
     debug
 }
 
+setup_zsh_plugins() {
+    if [ -e $1 ]; then
+        source $1
+    fi
+
+    sucess "Successfully set up zsh plugins"
+    debug
+}
 ############################ MAIN()
 variable_set "$HOME"
 program_must_exist "vim"
 program_must_exist "git"
 
-do_backup       "$HOME/.vim" \
-                "$HOME/.vimrc" \
-                "$HOME/.tmux.conf"\
-                "$HOME/.zshrc"
+do_backup           "$HOME/.vim" \
+                    "$HOME/.vimrc" \
+                    "$HOME/.tmux.conf"\
+                    "$HOME/.zshrc"
 
-sync_repo       "$APP_PATH" \
-                "$REPO_URI" \
-                "$REPO_BRANCH" \
-                "$app_name"
+sync_repo           "$APP_PATH" \
+                    "$REPO_URI" \
+                    "$REPO_BRANCH" \
+                    "$app_name"
 
-sync_repo       "$HOME/.oh-my-zsh" \
-                "$OH_MY_ZSH_URI" \
-                "master" \
-                "oh-my-zsh"
+sync_repo           "$HOME/.oh-my-zsh" \
+                    "$OH_MY_ZSH_URI" \
+                    "master" \
+                    "oh-my-zsh"
 
-sync_repo       "$HOME/.vim/bundle/Vundle.vim" \
-                "$VUNDLE_URI" \
-                "master" \
-                "vundle"
+sync_repo           "$HOME/.vim/bundle/Vundle.vim" \
+                    "$VUNDLE_URI" \
+                    "master" \
+                    "vundle"
 
-create_symlinks "$APP_PATH" \
-                "$HOME"
+create_symlinks     "$APP_PATH" \
+                    "$HOME"
 
-setup_vundle    "$APP_PATH/.vimrc.bundles.default"
+setup_vundle        "$APP_PATH/.vimrc.bundles.default"
 
+setup_zsh_plugins   "$HOME/.zsh.conf" 
 chsh -s /bin/zsh
 
 msg             "\nThanks for installing $app_name."

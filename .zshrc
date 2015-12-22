@@ -85,11 +85,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # ince 补全插件                                                                    
-# http://mimosa-pudica.net/zsh-incremental.html                                    
-if [ -d "$ZSH/plugins" ]; then                                                     
-    curl http://mimosa-pudica.net/src/incr-0.2.zsh -o "$ZSH/plugins/incr*.zsh"  
-fi                                                                                 
-                                                                                   
 if [ -e "$ZSH/plugins/incr*.zsh" ]; then                                           
     source $ZSH/plugins/incr*.zsh                                                  
 fi 

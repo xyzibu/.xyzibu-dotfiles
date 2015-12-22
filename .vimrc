@@ -365,10 +365,6 @@ cmap W! w !sudo tee % > /dev/null
 nnoremap <C-e> 5<C-e>
 nnoremap <C-y> 5<C-y>
 
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
 "==========================================
 " FileType Settings  文件类型设置
 "==========================================
