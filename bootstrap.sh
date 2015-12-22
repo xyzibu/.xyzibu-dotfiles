@@ -148,7 +148,8 @@ setup_zsh_plugins() {
         source $1
     fi
 
-    sucess "Successfully set up zsh plugins"
+    ret="$?"
+    success "Successfully set up zsh plugins"
     debug
 }
 ############################ MAIN()
@@ -181,7 +182,7 @@ create_symlinks     "$APP_PATH" \
 
 setup_vundle        "$APP_PATH/.vimrc.bundles.default"
 
-setup_zsh_plugins   "$HOME/.zsh.conf" 
+setup_zsh_plugins   "$APP_PATH/.zsh.conf" 
 chsh -s /bin/zsh
 
 msg             "\nThanks for installing $app_name."
