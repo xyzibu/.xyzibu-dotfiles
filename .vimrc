@@ -8,10 +8,9 @@
 "       -> HotKey Settings  自定义快捷键
 "       -> FileType Settings  针对文件类型的设置
 "       -> Theme Settings  主题设置
-"
 "       -> 插件配置和具体设置在.vimrc.bundles中
 "==========================================
-"
+
 "==========================================
 " Initial Plugin 加载插件
 "==========================================
@@ -78,6 +77,8 @@ set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 "set cursorcolumn
 "set cursorline          " 突出显示当前行
 
+"高亮第80列
+set cc=80
 
 "设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
 "好处：误删什么的，如果以前屏幕打开，可以找回

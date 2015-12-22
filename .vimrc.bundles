@@ -93,7 +93,7 @@ Plugin 'altercation/vim-colors-solarized'
         let g:solarized_degrade=1
         let g:solarized_contrast = "normal"
         let g:solarized_visibility= "low"
-        colorscheme solarized
+"        colorscheme solarized
 
     endif
 " }

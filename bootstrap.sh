@@ -9,6 +9,7 @@ app_name='xyzibu-dotfiles'
 [ -z "$REPO_BRANCH" ] && REPO_BRANCH='master'
 debug_mode='0'
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/VundleVim/Vundle.vim.git"
+[ -z "$OH-MY-ZSH_URI"] && OH-MY-ZSH_URI="https://github.com/robbyrussell/oh-my-zsh.git"
 
 ############################  BASIC SETUP TOOLS
 msg() {
@@ -70,10 +71,10 @@ lnif() {
 ############################ SETUP FUNCTIONS
 
 do_backup() {
-    if [ -e "$1" ] || [ -e "$2" ] || [ -e "$3" ]; then
+    if [ -e "$1" ] || [ -e "$2" ] || [ -e "$3" ] || [ -e "$4" ]; then
         msg "Attempting to back up your original configuration."
         today=`date +%Y%m%d_%s`
-        for i in "$1" "$2" "$3"; do
+        for i in "$1" "$2" "$3" "$4"; do
             [ -e "$i" ] && [ ! -L "$i" ] && mv -v "$i" "$i.$today";
         done
         ret="$?"
@@ -113,6 +114,7 @@ create_symlinks() {
     lnif "$source_path/.vimrc.before"  "$target_path/.vimrc.before"
     lnif "$source_path/.vim"           "$target_path/.vim"
     lnif "$source_path/.tmux.conf"     "$target_path/.tmux.conf"
+    lnif "$source_path/.zshrc"         "$target_path/.zshrc"
 
     if program_exists "nvim"; then
         lnif "$source_path/.vim"       "$target_path/.config/nvim"
@@ -150,7 +152,8 @@ program_must_exist "git"
 
 do_backup       "$HOME/.vim" \
                 "$HOME/.vimrc" \
-                "$HOME/.tmux.conf"
+                "$HOME/.tmux.conf"\
+                "$HOME/.zshrc"
 
 sync_repo       "$APP_PATH" \
                 "$REPO_URI" \
@@ -165,6 +168,13 @@ sync_repo       "$HOME/.vim/bundle/Vundle.vim" \
                 "master" \
                 "vundle"
 
+sync_repo       "$HOME/.oh_my_zsh" \
+                "$OH-MY-ZSH_URI" \
+                "master" \
+                "oh_my_zsh"
+
 setup_vundle    "$APP_PATH/.vimrc.bundles.default"
+
+chsh -s /bin/zsh
 
 msg             "\nThanks for installing $app_name."
