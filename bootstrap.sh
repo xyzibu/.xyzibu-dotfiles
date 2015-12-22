@@ -9,7 +9,7 @@ app_name='xyzibu-dotfiles'
 [ -z "$REPO_BRANCH" ] && REPO_BRANCH='master'
 debug_mode='0'
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/VundleVim/Vundle.vim.git"
-[ -z "$OH-MY-ZSH_URI"] && OH-MY-ZSH_URI="https://github.com/robbyrussell/oh-my-zsh.git"
+[ -z "$OH_MY_ZSH_URI" ] && OH_MY_ZSH_URI="https://github.com/robbyrussell/oh-my-zsh.git"
 
 ############################  BASIC SETUP TOOLS
 msg() {
@@ -121,10 +121,8 @@ create_symlinks() {
         lnif "$source_path/.vimrc"     "$target_path/.config/nvim/init.vim"
     fi
 
-#    touch  "$target_path/.vimrc.local"
-
     ret="$?"
-    success "Setting up vim symlinks."
+    success "Setting up configurtion symlinks."
     debug
 }
 
@@ -160,18 +158,18 @@ sync_repo       "$APP_PATH" \
                 "$REPO_BRANCH" \
                 "$app_name"
 
-create_symlinks "$APP_PATH" \
-                "$HOME"
+sync_repo       "$HOME/.oh-my-zsh" \
+                "$OH_MY_ZSH_URI" \
+                "master" \
+                "oh-my-zsh"
 
 sync_repo       "$HOME/.vim/bundle/Vundle.vim" \
                 "$VUNDLE_URI" \
                 "master" \
                 "vundle"
 
-sync_repo       "$HOME/.oh_my_zsh" \
-                "$OH-MY-ZSH_URI" \
-                "master" \
-                "oh_my_zsh"
+create_symlinks "$APP_PATH" \
+                "$HOME"
 
 setup_vundle    "$APP_PATH/.vimrc.bundles.default"
 
