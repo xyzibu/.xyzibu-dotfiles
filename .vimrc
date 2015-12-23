@@ -159,7 +159,6 @@ set noignorecase
 set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
 
 " 代码折叠
-set foldenable
 " 折叠方法
 " manual    手工折叠
 " indent    使用缩进表示折叠
@@ -168,7 +167,6 @@ set foldenable
 " diff      对没有更改的文本进行折叠
 " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
 set foldmethod=indent
-set foldmethod=syntax
 set foldlevel=99
 " 代码折叠自定义快捷键
 let g:FoldMethod = 0
