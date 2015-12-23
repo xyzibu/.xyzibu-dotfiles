@@ -152,6 +152,17 @@ setup_zsh_plugins() {
     success "Successfully set up zsh plugins"
     debug
 }
+
+change_sh() {
+    sh=`cat /etc/shells | grep /bin/zsh`
+    if [ "/bin/zsh"x = "$sh"x ]; then
+        if [ "/bin/zsh"x != "$SHELL"x ]; then
+            chsh -s /bin/zsh
+        fi
+    else
+        msg "You need to install zsh."
+    fi
+}
 ############################ MAIN()
 variable_set "$HOME"
 program_must_exist "vim"
@@ -183,6 +194,7 @@ create_symlinks     "$APP_PATH" \
 setup_vundle        "$APP_PATH/.vimrc.bundles.default"
 
 setup_zsh_plugins   "$APP_PATH/.zsh.conf" 
-chsh -s /bin/zsh
+
+change_sh
 
 msg             "\nThanks for installing $app_name."
