@@ -159,7 +159,7 @@ Plugin 'Valloric/YouCompleteMe'
         nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
         " 菜单配色
-        highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 =#EEE8D5
+        highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
         " 选中项配色
         highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
     endif
