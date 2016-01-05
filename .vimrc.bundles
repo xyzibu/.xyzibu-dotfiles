@@ -165,5 +165,21 @@ Plugin 'Valloric/YouCompleteMe'
     endif
 "  }
 
+Plugin 'nvie/vim-flake8'                                                           
+" vim-flake8 {                                                                     
+    if isdirectory(expand("~/.vim/bundle/vim-flake8"))                             
+        autocmd FileType python map <buffer> <F9> :call Flake8()<CR>               
+    endif                                                                          
+" }
+
+Plugin 'tpope/vim-fugitive'
+" vim-fugitive {
+    if isdirectory(expand("~/.vim/bundle/vim-fugitive"))
+        nnoremap <leader>gd :Gdiff<CR>
+        "按-可快速add，按C可进行commit
+        nnoremap <leader>gs :Gstatus<CR>
+        nnoremap <leader>gb :Gblame<CR>
+    endif
+" }
  call vundle#end()            " required
  filetype plugin indent on    " required

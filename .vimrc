@@ -257,6 +257,7 @@ endif
 " F5 语法开关，关闭语法可以加快大文件的展示
 " F6 换行开关
 " F7 显示可打印字符开关
+" F9 python语法和规则检查，配置见.vimrc.bundles
 
 " I can type :help on my own, thanks.  Protect your fat fingers from the evils of <F1>
 imap <F1> <Esc>"
