@@ -169,6 +169,8 @@ Plugin 'nvie/vim-flake8'
 " vim-flake8 {                                                                     
     if isdirectory(expand("~/.vim/bundle/vim-flake8"))                             
         autocmd FileType python map <buffer> <F9> :call Flake8()<CR>               
+        " To customize the location of quick fix window
+        let g:flake8_quickfix_location="topleft"
     endif                                                                          
 " }
 
