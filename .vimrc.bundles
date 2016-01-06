@@ -169,8 +169,23 @@ Plugin 'nvie/vim-flake8'
 " vim-flake8 {                                                                     
     if isdirectory(expand("~/.vim/bundle/vim-flake8"))                             
         autocmd FileType python map <buffer> <F9> :call Flake8()<CR>               
-        " To customize the location of quick fix window
-        let g:flake8_quickfix_location="topleft"
+        " run the Flake8 check every time you write a Python file
+        autocmd BufWritePost *.py call Flake8()
+        " To customize the location of quick fix
+        " window(topleft,botright,leftabove,rightblow)
+        let g:flake8_quickfix_location="rightbelow"
+        " To customize the height of quick fix window
+        let g:flake8_quickfix_height=7
+        " To customize whether the quickfix window opens, default=1
+        let g:flake8_show_quickfix=1 
+        " To customize whether the show signs in the gutter, default=0
+        let g:flake8_show_in_gutter=1
+        " To use colors defined in the colorscheme
+        highlight link Flake8_Error      Error
+        highlight link Flake8_Warning    WarningMsg
+        highlight link Flake8_Complexity WarningMsg
+        highlight link Flake8_Naming     WarningMsg
+        highlight link Flake8_PyFlake    WarningMsg
     endif                                                                          
 " }
 
