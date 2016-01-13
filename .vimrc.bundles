@@ -46,6 +46,8 @@ Plugin 'scrooloose/nerdtree'
         let NERDTreeHighlightCursorline=1
         "设置NERDTree子窗口位置
         let NERDTreeWinPos="left"
+        "设置树窗口宽度
+        let NERDTreeWinSize=40
         "显示隐藏文件
         let NERDTreeShowHidden=1
         "删除文件时自动删除文件对应 buffer
@@ -58,8 +60,6 @@ Plugin 'scrooloose/nerdtree'
         " s/v 分屏打开文件
         let g:NERDTreeMapOpenSplit = 's'
         let g:NERDTreeMapOpenVSplit = 'v'
-
-        " NERDTress File highlighting
 
     endif
 " }
@@ -198,5 +198,6 @@ Plugin 'tpope/vim-fugitive'
         nnoremap <leader>gb :Gblame<CR>
     endif
 " }
+
  call vundle#end()            " required
  filetype plugin indent on    " required
