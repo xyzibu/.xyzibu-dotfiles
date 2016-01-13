@@ -199,5 +199,7 @@ Plugin 'tpope/vim-fugitive'
     endif
 " }
 
+Plugin 'jlanzarotta/bufexplorer'
+
  call vundle#end()            " required
  filetype plugin indent on    " required
