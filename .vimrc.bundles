@@ -114,21 +114,6 @@ Plugin 'nathanaelkane/vim-indent-guides'
     endif
 " }
 
-" 快速移动
-Plugin 'easymotion/vim-easymotion'
-" vim-easymotion {
-    if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
-        " makes EasyMotion work similarly to Vim's smartcase option for global
-        " searches
-        let g:EasyMotion_smartcase = 1
-
-        map <Leader>l <Plug>(easymotion-lineforward)
-        map <Leader>j <Plug>(easymotion-j)
-        map <Leader>k <Plug>(easymotion-k)
-        map <Leader>h <Plug>(easymotion-linebackward)
-
-    endif
-" }
 
 " 快速选中编辑
 "Plugin 'vim-multiple-cursors'
@@ -202,6 +187,21 @@ Plugin 'Valloric/YouCompleteMe'
     endif
 "  }
 
+" 快速移动
+Plugin 'easymotion/vim-easymotion'
+" vim-easymotion {
+    if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
+        " makes EasyMotion work similarly to Vim's smartcase option for global
+        " searches
+        let g:EasyMotion_smartcase = 1
+
+        map <Leader>l <Plug>(easymotion-lineforward)
+        map <Leader>j <Plug>(easymotion-j)
+        map <Leader>k <Plug>(easymotion-k)
+        map <Leader>h <Plug>(easymotion-linebackward)
+
+    endif
+" }
 
  call vundle#end()            " required
  filetype plugin indent on    " required
