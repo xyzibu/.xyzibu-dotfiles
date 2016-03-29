@@ -119,6 +119,9 @@ Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'vim-multiple-cursors'
 
 
+Plugin 'jlanzarotta/bufexplorer'
+
+
 Plugin 'nvie/vim-flake8'                                                           
 " vim-flake8 {                                                                     
     if isdirectory(expand("~/.vim/bundle/vim-flake8"))                             
@@ -143,6 +146,7 @@ Plugin 'nvie/vim-flake8'
     endif                                                                          
 " }
 
+
 Plugin 'tpope/vim-fugitive'
 " vim-fugitive {
     if isdirectory(expand("~/.vim/bundle/vim-fugitive"))
@@ -153,11 +157,26 @@ Plugin 'tpope/vim-fugitive'
     endif
 " }
 
-Plugin 'jlanzarotta/bufexplorer'
+
+" 快速移动
+Plugin 'easymotion/vim-easymotion'
+" vim-easymotion {
+    if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
+        " makes EasyMotion work similarly to Vim's smartcase option for global
+        " searches
+        let g:EasyMotion_smartcase = 1
+
+        map <Leader>l <Plug>(easymotion-lineforward)
+        map <Leader>j <Plug>(easymotion-j)
+        map <Leader>k <Plug>(easymotion-k)
+        map <Leader>h <Plug>(easymotion-linebackward)
+
+    endif
+" }
 
 
 " 代码自动补全
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 " YouCompleteMe {
     if isdirectory(expand("~/.vim/bundle/YouCompleteMe"))
         " 补全功能在注释中同样有效
@@ -187,21 +206,6 @@ Plugin 'Valloric/YouCompleteMe'
     endif
 "  }
 
-" 快速移动
-Plugin 'easymotion/vim-easymotion'
-" vim-easymotion {
-    if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
-        " makes EasyMotion work similarly to Vim's smartcase option for global
-        " searches
-        let g:EasyMotion_smartcase = 1
-
-        map <Leader>l <Plug>(easymotion-lineforward)
-        map <Leader>j <Plug>(easymotion-j)
-        map <Leader>k <Plug>(easymotion-k)
-        map <Leader>h <Plug>(easymotion-linebackward)
-
-    endif
-" }
 
  call vundle#end()            " required
  filetype plugin indent on    " required
