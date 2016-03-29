@@ -78,28 +78,8 @@ Plugin 'jistr/vim-nerdtree-tabs'
     endif
 " }
 
-" ################### 主题插件 ###################
-Plugin 'altercation/vim-colors-solarized'
-
-" 必须把~/.vim/bundle/vim-colors-solarized复制到~/.vim/colors/，否则提示Cannot
-" find color scheme solarized
-" cp ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
-" solarized {
-    if isdirectory(expand("~/.vim/bundle/vim-colors-solarized"))
-        syntax on
-        let g:solarized_termcolors=256
-        set background=dark
-        let g:solarized_termtrans=1
-        let g:solarized_degrade=1
-        let g:solarized_contrast = "normal"
-        let g:solarized_visibility= "low"
-"        colorscheme solarized
-
-    endif
-" }
 
 Plugin 'nathanaelkane/vim-indent-guides'
-
 " indent-guides {
     if isdirectory(expand("~/.vim/bundle/vim-indent-guides"))
         " 随 vim 自启动
@@ -117,6 +97,9 @@ Plugin 'nathanaelkane/vim-indent-guides'
 
 " 快速选中编辑
 "Plugin 'vim-multiple-cursors'
+
+
+Plugin 'jlanzarotta/bufexplorer'
 
 
 Plugin 'nvie/vim-flake8'                                                           
@@ -153,7 +136,43 @@ Plugin 'tpope/vim-fugitive'
     endif
 " }
 
-Plugin 'jlanzarotta/bufexplorer'
+
+" 快速移动
+Plugin 'easymotion/vim-easymotion'
+" vim-easymotion {
+    if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
+        " makes EasyMotion work similarly to Vim's smartcase option for global
+        " searches
+        let g:EasyMotion_smartcase = 1
+
+        map <Leader>l <Plug>(easymotion-lineforward)
+        map <Leader>j <Plug>(easymotion-j)
+        map <Leader>k <Plug>(easymotion-k)
+        map <Leader>h <Plug>(easymotion-linebackward)
+
+    endif
+" }
+
+
+" ################### 主题插件 ###################
+Plugin 'altercation/vim-colors-solarized'
+
+" 必须把~/.vim/bundle/vim-colors-solarized复制到~/.vim/colors/，否则提示Cannot
+" find color scheme solarized
+" cp ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
+" solarized {
+    if isdirectory(expand("~/.vim/bundle/vim-colors-solarized"))
+        syntax on
+        let g:solarized_termcolors=256
+        set background=dark
+        let g:solarized_termtrans=1
+        let g:solarized_degrade=1
+        let g:solarized_contrast = "normal"
+        let g:solarized_visibility= "low"
+"        colorscheme solarized
+
+    endif
+" }
 
 
 " 代码自动补全
@@ -186,22 +205,6 @@ Plugin 'Valloric/YouCompleteMe'
         highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
     endif
 "  }
-
-" 快速移动
-Plugin 'easymotion/vim-easymotion'
-" vim-easymotion {
-    if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
-        " makes EasyMotion work similarly to Vim's smartcase option for global
-        " searches
-        let g:EasyMotion_smartcase = 1
-
-        map <Leader>l <Plug>(easymotion-lineforward)
-        map <Leader>j <Plug>(easymotion-j)
-        map <Leader>k <Plug>(easymotion-k)
-        map <Leader>h <Plug>(easymotion-linebackward)
-
-    endif
-" }
 
  call vundle#end()            " required
  filetype plugin indent on    " required
