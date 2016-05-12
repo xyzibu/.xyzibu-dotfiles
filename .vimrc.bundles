@@ -47,7 +47,7 @@ Plugin 'scrooloose/nerdtree'
         "设置NERDTree子窗口位置
         let NERDTreeWinPos="left"
         "设置树窗口宽度
-        let NERDTreeWinSize=40
+        let NERDTreeWinSize=30
         "显示隐藏文件
         let NERDTreeShowHidden=1
         "删除文件时自动删除文件对应 buffer
@@ -174,9 +174,43 @@ Plugin 'easymotion/vim-easymotion'
     endif
 " }
 
+Plugin 'majutsushi/tagbar'
+" tagbar {
+    if isdirectory(expand("~/.vim/bundle/tagbar"))
+        let g:tagbar_width=30  
+        " 启动时自动focus
+        let g:tagbar_autofocus = 1
+        noremap <silent> <F8> :TagbarToggle<CR>
+
+    endif
+" }
+
+Plugin 'vim-airline/vim-airline'
+
+Plugin 'ctrlpvim/ctrlp.vim'
+" ctrlp.vim {
+    if isdirectory(expand("~/.vim/bundle/ctrlp.vim"))
+        let g:ctrlp_map = '<c-p>'
+        let g:ctrlp_cmd = 'CtrlP'
+    endif
+" }
+
+Plugin 'davidhalter/jedi-vim'
+" jedi-vim {
+    if isdirectory(expand("~/.vim/bundle/jedi-vim"))
+        let g:jedi#goto_command = "<leader>d"
+        let g:jedi#goto_assignments_command = "<leader>g"
+        let g:jedi#goto_definitions_command = ""
+        let g:jedi#documentation_command = "K"
+        let g:jedi#usages_command = "<leader>n"
+        let g:jedi#completions_command = "<C-Space>"
+        let g:jedi#rename_command = "<leader>r"
+
+    endif
+"  }
 
 " 代码自动补全
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 " YouCompleteMe {
     if isdirectory(expand("~/.vim/bundle/YouCompleteMe"))
         " 补全功能在注释中同样有效

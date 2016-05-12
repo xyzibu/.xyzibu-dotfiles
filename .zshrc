@@ -54,8 +54,7 @@ plugins=(git autojump tmux)
 
 # User configuration
 
-  export PATH="/sbin:/usr/sbin:/usr/local/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+  export PATH="/sbin:/usr/sbin:/usr/local/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/libexec/git-core/" # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,6 +82,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias pc="proxychains4"
 
 # ince 补全插件                                                                    
 if [ -e "$ZSH/plugins/incr*.zsh" ]; then                                           
