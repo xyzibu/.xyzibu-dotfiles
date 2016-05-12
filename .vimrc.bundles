@@ -25,7 +25,6 @@ Plugin 'VundleVim/Vundle.vim'
 " ################### 快速导航 ###################
 "目录导航
 Plugin 'scrooloose/nerdtree'
-
 " NerdTree {
     if isdirectory(expand("~/.vim/bundle/nerdtree"))
         "使用 NERDTree 插件查看工程文件。设置快捷键
@@ -64,8 +63,8 @@ Plugin 'scrooloose/nerdtree'
     endif
 " }
 
-Plugin 'jistr/vim-nerdtree-tabs'
 
+Plugin 'jistr/vim-nerdtree-tabs'
 " nerdtree-tabs {
     if isdirectory(expand("~/.vim/bundle/vim-nerdtree-tabs"))
         map <leader>n <plug>NERDTreeTabsToggle<CR>
@@ -78,28 +77,8 @@ Plugin 'jistr/vim-nerdtree-tabs'
     endif
 " }
 
-" ################### 主题插件 ###################
-Plugin 'altercation/vim-colors-solarized'
-
-" 必须把~/.vim/bundle/vim-colors-solarized复制到~/.vim/colors/，否则提示Cannot
-" find color scheme solarized
-" cp ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
-" solarized {
-    if isdirectory(expand("~/.vim/bundle/vim-colors-solarized"))
-        syntax on
-        let g:solarized_termcolors=256
-        set background=dark
-        let g:solarized_termtrans=1
-        let g:solarized_degrade=1
-        let g:solarized_contrast = "normal"
-        let g:solarized_visibility= "low"
-"        colorscheme solarized
-
-    endif
-" }
 
 Plugin 'nathanaelkane/vim-indent-guides'
-
 " indent-guides {
     if isdirectory(expand("~/.vim/bundle/vim-indent-guides"))
         " 随 vim 自启动
@@ -158,6 +137,26 @@ Plugin 'tpope/vim-fugitive'
 " }
 
 
+" ################### 主题插件 ###################
+Plugin 'altercation/vim-colors-solarized'
+" 必须把~/.vim/bundle/vim-colors-solarized复制到~/.vim/colors/，否则提示Cannot
+" find color scheme solarized
+" cp ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
+" solarized {
+    if isdirectory(expand("~/.vim/bundle/vim-colors-solarized"))
+        syntax on
+        let g:solarized_termcolors=256
+        set background=dark
+        let g:solarized_termtrans=1
+        let g:solarized_degrade=1
+        let g:solarized_contrast = "normal"
+        let g:solarized_visibility= "low"
+"        colorscheme solarized
+
+    endif
+" }
+
+
 " 快速移动
 Plugin 'easymotion/vim-easymotion'
 " vim-easymotion {
@@ -174,6 +173,7 @@ Plugin 'easymotion/vim-easymotion'
     endif
 " }
 
+
 Plugin 'majutsushi/tagbar'
 " tagbar {
     if isdirectory(expand("~/.vim/bundle/tagbar"))
@@ -185,7 +185,9 @@ Plugin 'majutsushi/tagbar'
     endif
 " }
 
+
 Plugin 'vim-airline/vim-airline'
+
 
 Plugin 'ctrlpvim/ctrlp.vim'
 " ctrlp.vim {
@@ -194,6 +196,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
         let g:ctrlp_cmd = 'CtrlP'
     endif
 " }
+
 
 Plugin 'davidhalter/jedi-vim'
 " jedi-vim {
@@ -208,6 +211,7 @@ Plugin 'davidhalter/jedi-vim'
 
     endif
 "  }
+
 
 " 代码自动补全
 Plugin 'Valloric/YouCompleteMe'
@@ -239,7 +243,6 @@ Plugin 'Valloric/YouCompleteMe'
         highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
     endif
 "  }
-
 
  call vundle#end()            " required
  filetype plugin indent on    " required
