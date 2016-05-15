@@ -72,7 +72,6 @@ if has('persistent_undo')
   set undodir=/tmp/vimundo/
 endif
 
-set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 " 突出显示当前行列
 "set cursorcolumn
 "set cursorline          " 突出显示当前行
@@ -234,7 +233,7 @@ set completeopt=longest,menu
 " 增强模式中的命令行自动完成操作
 set wildmenu
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc,*.class
+set wildignore=*.o,*~,*.swp,*.bak,*.pyc,*.class,.svn
 
 "离开插入模式后自动关闭预览窗口
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
