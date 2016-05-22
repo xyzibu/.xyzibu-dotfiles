@@ -165,10 +165,14 @@ Plugin 'easymotion/vim-easymotion'
         " searches
         let g:EasyMotion_smartcase = 1
 
+        " <Leader><Leader>w
+        " <Leader><Leader>b
+        " <Leader><Leader>s
         map <Leader>l <Plug>(easymotion-lineforward)
         map <Leader>j <Plug>(easymotion-j)
         map <Leader>k <Plug>(easymotion-k)
         map <Leader>h <Plug>(easymotion-linebackward)
+        map <Leader>. <Plug>(easymotion-repeat)
 
     endif
 " }
