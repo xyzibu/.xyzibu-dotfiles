@@ -78,20 +78,20 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " }
 
 
-Plugin 'nathanaelkane/vim-indent-guides'
-" indent-guides {
-    if isdirectory(expand("~/.vim/bundle/vim-indent-guides"))
-        " 随 vim 自启动
-         let g:indent_guides_enable_on_vim_startup=1
-        " 从第二层开始可视化显示缩进
-         let g:indent_guides_start_level=2
-        " 色块宽度
-         let g:indent_guides_guide_size=1
-        " 快捷键 ig 开/关缩进可视化
-        nmap <silent> <leader>ig <Plug>IndentGuidesToggle
-
-    endif
-" }
+" Plugin 'nathanaelkane/vim-indent-guides'
+" " indent-guides {
+"     if isdirectory(expand("~/.vim/bundle/vim-indent-guides"))
+"         " 随 vim 自启动
+"          let g:indent_guides_enable_on_vim_startup=1
+"         " 从第二层开始可视化显示缩进
+"          let g:indent_guides_start_level=2
+"         " 色块宽度
+"          let g:indent_guides_guide_size=1
+"         " 快捷键 ig 开/关缩进可视化
+"         nmap <silent> <leader>ig <Plug>IndentGuidesToggle
+" 
+"     endif
+" " }
 
 
 " 快速选中编辑
@@ -190,7 +190,7 @@ Plugin 'majutsushi/tagbar'
 " }
 
 
-Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline'
 
 
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -205,13 +205,18 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
 " jedi-vim {
     if isdirectory(expand("~/.vim/bundle/jedi-vim"))
+        let g:jedi#completions_command = "<C-N>"
         let g:jedi#goto_command = "<leader>d"
         let g:jedi#goto_assignments_command = "<leader>g"
-        let g:jedi#goto_definitions_command = ""
+        let g:jedi#goto_definitions_command = "-"
         let g:jedi#documentation_command = "K"
         let g:jedi#usages_command = "<leader>n"
         let g:jedi#completions_command = "<C-Space>"
         let g:jedi#rename_command = "<leader>r"
+        let g:jedi#auto_initialization = 0
+        let g:jedi#popup_on_dot = 0
+        let g:jedi#completions_enabled = 0
+        let g:jedi#smart_auto_mappings = 0
 
     endif
 "  }
