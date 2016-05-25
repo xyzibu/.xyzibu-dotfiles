@@ -261,10 +261,11 @@ endif
 " I can type :help on my own, thanks.  Protect your fat fingers from the evils of <F1>
 imap <F1> <Esc>"
 nnoremap <F2> :set number!<CR>
+noremap <Tab> <Esc>
 
 "set paste
 set pastetoggle=<F4>
-
+    
 " disbale paste mode when leaving insert mode
 au InsertLeave * set nopaste
 nnoremap <F5> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
