@@ -89,9 +89,22 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
             \ "Unmerged"  : "unmerg",
             \ "Deleted"   : "del",
             \ "Dirty"     : "-",
-            \ "Clean"     : " ",
+            \ "Clean"     : "",
             \ "Unknown"   : "?"
             \ }
+    endif
+" }
+
+
+Plugin 'airblade/vim-gitgutter'
+" vim-gitgutter {
+    if isdirectory(expand("~/.vim/bundle/vim-gitgutter"))
+        let g:gitgutter_max_signs = 500  " default value
+        " jump to next hunk (change): ]c\
+        " jump to previous hunk (change): [c
+        " preview hunk: <leader>hp
+        " stage hunk: <leader>hs
+        " undo hunk: <leader>hu
     endif
 " }
 
