@@ -78,6 +78,24 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " }
 
 
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+" nerdtree-git-plugin {
+    if isdirectory(expand("~/.vim/bundle/nerdtree-git-plugin"))
+        let g:NERDTreeIndicatorMapCustom = {
+            \ "Modified"  : "mod",
+            \ "Staged"    : "=",
+            \ "Untracked" : "untr",
+            \ "Renamed"   : "r",
+            \ "Unmerged"  : "unmerg",
+            \ "Deleted"   : "del",
+            \ "Dirty"     : "-",
+            \ "Clean"     : " ",
+            \ "Unknown"   : "?"
+            \ }
+    endif
+" }
+
+
 " Plugin 'nathanaelkane/vim-indent-guides'
 " " indent-guides {
 "     if isdirectory(expand("~/.vim/bundle/vim-indent-guides"))
