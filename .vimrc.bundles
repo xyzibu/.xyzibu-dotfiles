@@ -132,17 +132,17 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'jlanzarotta/bufexplorer'
 
 
-Plugin 'nvie/vim-flake8'                                                           
+" Plugin 'nvie/vim-flake8'                                                           
 " vim-flake8 {                                                                     
     if isdirectory(expand("~/.vim/bundle/vim-flake8"))                             
         autocmd FileType python map <buffer> <F9> :call Flake8()<CR>               
         " run the Flake8 check every time you write a Python file
         autocmd BufWritePost *.py call Flake8()
         " To customize the location of quick fix
-        " window(topleft,botright,leftabove,rightblow)
+        " window(topleft,botright,leftabove,rightbelow)
         let g:flake8_quickfix_location="rightbelow"
         " To customize the height of quick fix window
-        let g:flake8_quickfix_height=7
+        let g:flake8_quickfix_height=2
         " To customize whether the quickfix window opens, default=1
         let g:flake8_show_quickfix=1 
         " To customize whether the show signs in the gutter, default=0
@@ -155,6 +155,18 @@ Plugin 'nvie/vim-flake8'
         highlight link Flake8_PyFlake    WarningMsg
     endif                                                                          
 " }
+
+
+Plugin 'klen/python-mode'
+" python-mode {
+    if isdirectory(expand("~/.vim/bundle/python-mode"))
+        let g:pymode_rope = 0
+        let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
+        let g:pymode_lint_unmodified = 1
+        let g:pymode_quickfix_minheight = 2
+        let g:pymode_quickfix_maxheight = 6
+    endif
+"  }
 
 
 Plugin 'tpope/vim-fugitive'
@@ -254,7 +266,7 @@ Plugin 'davidhalter/jedi-vim'
 
 
 " 代码自动补全
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 " YouCompleteMe {
     if isdirectory(expand("~/.vim/bundle/YouCompleteMe"))
         " 补全功能在注释中同样有效
