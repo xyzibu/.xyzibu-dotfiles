@@ -161,10 +161,10 @@ Plugin 'klen/python-mode'
 " python-mode {
     if isdirectory(expand("~/.vim/bundle/python-mode"))
         let g:pymode_rope = 0
-        let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
+        let g:pymode_lint_checkers = ['pyflakes', 'pep8']
         let g:pymode_lint_unmodified = 1
-        let g:pymode_quickfix_minheight = 2
-        let g:pymode_quickfix_maxheight = 6
+        let g:pymode_quickfix_minheight = 1
+        let g:pymode_quickfix_maxheight = 3
     endif
 "  }
 
