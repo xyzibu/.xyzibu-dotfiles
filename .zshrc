@@ -54,7 +54,7 @@ plugins=(git autojump tmux)
 
 # User configuration
 
-  export PATH="/sbin:/usr/sbin:/usr/local/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/libexec/git-core/" # export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/sbin:/usr/sbin:/usr/local/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/libexec/git-core/:/usr/local/go/bin" # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,3 +88,13 @@ alias pc="proxychains4"
 if [ -e "$ZSH/plugins/incr*.zsh" ]; then                                           
     source $ZSH/plugins/incr*.zsh                                                  
 fi 
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export GOPATH=/Users/zibu/workspace/gocode
+export PATH="$PATH:$GOPATH/bin"
+export SPARK_HOME=/Users/zibu/software/spark-2.1.0-bin-hadoop2.7
+export PATH="$PATH:$SPARK_HOME/bin"
+# privoxy
+export http_proxy=http://127.0.0.1:8118
+export https_proxy=http://127.0.0.1:8118

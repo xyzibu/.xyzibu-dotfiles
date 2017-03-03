@@ -296,5 +296,11 @@ Plugin 'davidhalter/jedi-vim'
     endif
 "  }
 
+Plugin 'fatih/vim-go'
+" vim-go {
+    if isdirectory(expand("~/.vim/bundle/vim-go"))
+    endif
+" }
+
  call vundle#end()            " required
  filetype plugin indent on    " required
