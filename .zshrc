@@ -96,5 +96,5 @@ export PATH="$PATH:$GOPATH/bin"
 export SPARK_HOME=/Users/zibu/software/spark-2.1.0-bin-hadoop2.7
 export PATH="$PATH:$SPARK_HOME/bin"
 # privoxy
-export http_proxy=http://127.0.0.1:8118
-export https_proxy=http://127.0.0.1:8118
+#export http_proxy=http://127.0.0.1:8118
+#export https_proxy=https://127.0.0.1:8118

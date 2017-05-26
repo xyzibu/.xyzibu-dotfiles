@@ -135,9 +135,9 @@ Plugin 'jlanzarotta/bufexplorer'
 " Plugin 'nvie/vim-flake8'                                                           
 " vim-flake8 {                                                                     
     if isdirectory(expand("~/.vim/bundle/vim-flake8"))                             
-        autocmd FileType python map <buffer> <F9> :call Flake8()<CR>               
+        " autocmd FileType python map <buffer> <F9> :call Flake8()<CR>               
         " run the Flake8 check every time you write a Python file
-        autocmd BufWritePost *.py call Flake8()
+        " autocmd BufWritePost *.py call Flake8()
         " To customize the location of quick fix
         " window(topleft,botright,leftabove,rightbelow)
         let g:flake8_quickfix_location="rightbelow"
@@ -157,7 +157,7 @@ Plugin 'jlanzarotta/bufexplorer'
 " }
 
 
-Plugin 'klen/python-mode'
+" Plugin 'klen/python-mode'
 " python-mode {
     if isdirectory(expand("~/.vim/bundle/python-mode"))
         let g:pymode_rope = 0
@@ -181,7 +181,7 @@ Plugin 'tpope/vim-fugitive'
 
 
 " ################### 主题插件 ###################
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
 " 必须把~/.vim/bundle/vim-colors-solarized复制到~/.vim/colors/，否则提示Cannot
 " find color scheme solarized
 " cp ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
@@ -236,7 +236,7 @@ Plugin 'majutsushi/tagbar'
 " Plugin 'vim-airline/vim-airline'
 
 
-Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'ctrlpvim/ctrlp.vim'
 " ctrlp.vim {
     if isdirectory(expand("~/.vim/bundle/ctrlp.vim"))
         let g:ctrlp_map = '<c-p>'
@@ -245,7 +245,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " }
 
 
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 " jedi-vim {
     if isdirectory(expand("~/.vim/bundle/jedi-vim"))
         let g:jedi#completions_command = "<C-N>"
