@@ -81,7 +81,7 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " nerdtree-git-plugin {
     if isdirectory(expand("~/.vim/bundle/nerdtree-git-plugin"))
-        let g:NERDTreeIndicatorMapCustom = {
+        let g:NERDTreeGitStatusIndicatorMapCustom = {
             \ "Modified"  : "mod",
             \ "Staged"    : "=",
             \ "Untracked" : "untr",
